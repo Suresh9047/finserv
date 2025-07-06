@@ -1,0 +1,252 @@
+import { useState } from 'react';
+import investment1 from '../../assets/sample/investment1.png';
+import Realestate from '../../assets/Investment-cards/real-estate.png';
+import Mortarboard from '../../assets/Investment-cards/mortarboard.png';
+import Moneybag from '../../assets/Investment-cards/money-bag.png';
+import Unsecuredloan from '../../assets/Investment-cards/unsecured-loan.png';
+import Creditcard from '../../assets/Investment-cards/credit-card.png';
+import ReusableSlider from "../../components/ReusableSlider";
+import InsuracePartners from '../../components/InsurancePartners';
+import ICICILogo from '../../assets/investments/icici-direct-logo.png';
+import HDFCLogo from '../../assets/investments/hdfcLife-Logo.jpg';
+import MAXLogo from '../../assets/investments/max-life-logo.png';
+import ApplyNowForm from '../../components/ApplyNowForm';
+
+const slides = [
+    {
+        main: "Protection Plans",
+        title: "HDFC Life Protect Life",
+        description: "Start your dream home journey with HDFC Bank.",
+        iconUrl: Realestate,
+        knowMoreLink: "./HDFC-HdfcProtectLife",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Protection Plans",
+        title: "HDFC Life Protect Super",
+        description: "A better Home starts with a better Loan!",
+        iconUrl: Mortarboard,
+        knowMoreLink: "./HDFC-HdfcLifeProtectSuper",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Saving Plan",
+        title: "HDFC Life Sanchay Plus",
+        description: "Avail Loans against rent receivables.",
+        iconUrl: Moneybag,
+        knowMoreLink: "./HDFC-HdfclifeSancharyPlus",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Saving Plan",
+        title: "HDFC Life Sanchay Fixed Maturity Plan",
+        description: "Get quick and easy personal Loans.",
+        iconUrl: Unsecuredloan,
+        knowMoreLink: "./HDFC-SancharyFixedMaturityPlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Saving Plan",
+        title: "HDFC Life Guaranteed Income Insurance Plan ",
+        description: "Get quick and easy personal Loans.",
+        iconUrl: Creditcard,
+        knowMoreLink: "./HDFC-GuaranteedIncomeInsurancePlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Saving Plan",
+        title: "HDFC Life Sanchay Par Advantage",
+        description: "Get quick and easy personal Loans.",
+        iconUrl: Realestate,
+        knowMoreLink: "./HDFC-SancharyParAdvantage",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "ULIP",
+        title: "HDFC Life Smart Protect Plan",
+        description: "Enjoy Multiple-rewards & Benefits with HDFC Bank Credit Card",
+        iconUrl: Mortarboard,
+        knowMoreLink: "./HDFC-SmartPtotectPlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "ULIP",
+        title: "HDFC Life Invest ULIP",
+        description: "Start your dream home journey with HDFC Bank.",
+        iconUrl: Moneybag,
+        knowMoreLink: "./HDFC-LifeInvestULIP",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "ULIP",
+        title: "HDFC Life Wealth",
+        description: "Start your dream home journey with HDFC Bank.",
+        iconUrl: Unsecuredloan,
+        knowMoreLink: "./HDFC-LifeWealth",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "ULIP",
+        title: "HDFC SL ProGrowth Flexi",
+        description: "Start your dream home journey with HDFC Bank",
+        iconUrl: Creditcard,
+        knowMoreLink: "./HDFC-SLProGrowthFlexi",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "ULIP",
+        title: "HDFC Life Smart Woman Plan",
+        description: "Start your dream home journey with HDFC Bank",
+        iconUrl: Realestate,
+        knowMoreLink: "./HDFC-SmartWomenPlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Retirement Plans",
+        title: "HDFC Life Systematic Retirement Plan",
+        description: "Start your dream home journey with HDFC Bank",
+        iconUrl: Mortarboard,
+        knowMoreLink: "./HDFC-SystematicRetirementPlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+    {
+        main: "Retirement Plans",
+        title: "HDFC Life Pension Guaranteed Plan",
+        description: "Start your dream home journey with HDFC Bank",
+        iconUrl: Moneybag,
+        knowMoreLink: "./HDFC-PensionGuaranteedPlan",
+        knowMoreText: "know More",
+        applyNowText: "Apply Now",
+    },
+];
+
+const HDFCLife = () => {
+
+    const items = [
+        "Ensure financial protection for your family with HDFC Life’s term insurance plans, offering financial support in case of unexpected events.",
+        "Access affordable premiums that offer substantial life cover, making protection accessible for everyone.",
+        "Benefit from guaranteed income during retirement, giving you the freedom to live comfortably without worrying about financial constraints.",
+        "Ensure a bright future for your child’s education, marriage, or other significant milestones with HDFC Life's child plans.",
+    ];
+
+    const partnersData = [
+        { name: 'ICICI direct plans', logo: ICICILogo },
+        { name: 'HDFC Life', logo: HDFCLogo },
+        { name: 'MAX Life', logo: MAXLogo },
+    ];
+
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
+    const [selectedPlan, setSelectedPlan] = useState(null);
+
+    const handleApplyNowClick = () => {
+        window.open(
+          "https://onlineinsurance.hdfclife.com/portal.do?_portalid=opsABnr&agentcode=1377118&source=DigitalFC&ccdccrrequired=Y",
+          "_blank",
+          "noopener,noreferrer"
+        );
+      };
+      
+
+    return (
+        <div>
+            {/* Hero Section */}
+            <div className="bg-gradient-to-b from-blue-100 to-white py-16">
+                <div className="container mx-auto px-6 grid md:grid-cols-2 gap-8 mt-[30px] items-center">
+                    {/* Left Content */}
+                    <div>
+                        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                            Securing Your Future, One Investment at a Time
+                        </h1>
+
+                        <button
+  onClick={() => {
+    window.open(
+      "https://onlineinsurance.hdfclife.com/portal.do?_portalid=opsABnr&agentcode=1377118&source=DigitalFC&ccdccrrequired=Y",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }}
+  className="bg-[#FF8800] text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all"
+>
+  START
+</button>
+
+                    </div>
+
+                    {/* Right Image or SVG Illustration */}
+                    <div className="flex justify-center">
+                        <img
+                            src={investment1}
+                            alt="Loan illustration"
+                            className="max-w-full h-auto"
+                        />
+                    </div>
+                </div>
+
+                {/* Apply Now Modal */}
+                <ApplyNowForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} loanTypeLabel="Choose Inversements" />
+            </div>
+
+
+
+            {/* Breadcrumb */}
+            <div className="bg-[#fbfbfb] pl-12 py-3">
+                <nav className="text-gray-600 text-sm flex items-center space-x-2">
+                    <a href="/" className="hover:underline text-[#0282ba]">Home</a>
+                    <span className="text-gray-400">&gt;</span>
+                    <span>HDFC Life</span>
+                </nav>
+            </div>
+
+            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-12 space-y-8">
+                <div className="container py-6">
+                    <h1 className="text-3xl text-center text-[#0282ba] mb-4">INTRODUCTION</h1>
+                    <p className="text-gray-700">
+                        In partnership with HDFC Life, the bank provides life insurance products that combine protection with investment benefits. These plans are designed to secure your family's future while offering opportunities for wealth accumulation.
+                    </p>
+                </div>
+
+                <div className="container py-8">
+                    <h2 className="text-center text-[#ff8c00] text-4xl mb-6">HDFC Life</h2>
+
+                    <ul className="list-none mt-5 space-y-4">
+                        {items.map((item) => (
+                            <li key={item} className="text-[17px] leading-relaxed pl-6 relative">
+                                <span className="absolute left-0 top-0 text-[#1d5a99] text-[16px]">✔</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+
+                </div>
+                <ReusableSlider slides={slides} onApplyNowClick={handleApplyNowClick} />
+                <ApplyNowForm
+                    isOpen={isFormOpen}
+                    onClose={() => setIsFormOpen(false)}
+                    loanTypeLabel="Choose Inversements"
+                    selectedPlan={selectedPlan}
+                />
+
+                <InsuracePartners
+                    heading="Trusted Investment Partners"
+                    partners={partnersData}
+                />
+            </div>
+        </div>
+    )
+}
+
+export default HDFCLife;
